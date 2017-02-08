@@ -54,7 +54,7 @@ Talkbot.listen(options_listen,function(message,error){
 
 ##### options
 * `port` - Number: The port where your server is going to be listening.
-* 
+
 ##### callback
 Two parameters function, *message* and *callback*. You can find under the key *message* the data received from Talkbot's API.
 
