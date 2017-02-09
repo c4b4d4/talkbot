@@ -1,5 +1,6 @@
 var exports = module.exports = {};
 var http = require('http');
+var https = require('https');
 var request = require('request');
 exports.trigger = function(options,fn){
 	
@@ -91,7 +92,22 @@ exports.listen = function(options,fn) {
 			}
 		}
 	}
-	var server = http.createServer(handleRequest);
+	var server;
+	var gateway;
+	if(options.https){
+		gateway = https;
+	} else {
+		gateway = http;	
+	}
+	if(options.server_options){
+		if(typeof(options.server_options)!="object"){
+			fn(null,"Error: options.server_options must be an object");
+			return;	
+		}
+		server = gateway.createServer(options.server_options,handleRequest);	
+	} else {
+		server = gateway.createServer(handleRequest);
+	}
 	server.listen(requestsPort, function(){ });
 	server.on('error', function (e) {
 	  fn(null,e);
