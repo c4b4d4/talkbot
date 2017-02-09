@@ -1,6 +1,6 @@
 {
   "name": "talkbot",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "A package to communicate with Talkbot's API",
   "main": "index.js",
   "scripts": {

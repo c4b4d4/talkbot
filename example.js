@@ -15,10 +15,10 @@ Talkbot.trigger(options_trigger,function(message,error){
 //LISTEN YOUR BOT FOR A TRIGGER
 var options = {
   key: fs.readFileSync('/path/to/key', 'utf8'),
-  ca: fs.readFileSync('/path/to/cert', 'utf8'),
-  cert: fs.readFileSync('/path/to/cert', 'utf8')
+  cert: fs.readFileSync('/path/to/cert', 'utf8'),
+  ca: fs.readFileSync('/path/to/cert', 'utf8')
 };
-var port = "YOUR_PORT_TO_LISTEN"
+var port = "YOUR_PORT_TO_LISTEN";
 var options_listen = {port:port,https:true,server_options:options};
 Talkbot.listen(options_listen,function(message,error){
 	if(error){
